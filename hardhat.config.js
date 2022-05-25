@@ -1,3 +1,4 @@
+require("dotenv").config();
 require('@nomiclabs/hardhat-waffle')
 require('solidity-coverage')
 
@@ -24,9 +25,10 @@ module.exports = {
   },
   networks: {
     hardhat: {
-      accounts: {
-        count: 20,
-      },
+      accounts: [
+        { privateKey: process.env.PRIVATE_KEY, balance: "10000000000000000000000" },
+        { privateKey: process.env.RICH_KEY, balance: "10000000000000000000000" },
+      ],
     },
   },
 }
